@@ -109,7 +109,6 @@
   }
   .header-cart .badge.show { display: flex; animation: pop 0.3s ease; }
   @keyframes pop { 0%{transform:scale(.5)} 60%{transform:scale(1.2)} 100%{transform:scale(1)} }
-
   .tagline { padding: 22px 20px 14px; position: relative; z-index: 1; }
   .tagline h1 {
     font-size: 26px; font-weight: 800; letter-spacing: -0.6px; line-height: 1.15;
@@ -117,7 +116,6 @@
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
   }
   .tagline p { margin-top: 6px; font-size: 13px; color: var(--muted); font-weight: 500; }
-
   .search-wrap { padding: 0 14px 10px; position: relative; z-index: 1; }
   .search-box {
     width: 100%; padding: 12px 16px 12px 42px;
@@ -132,7 +130,6 @@
     content: "🔍"; position: absolute; left: 28px; top: 50%; transform: translateY(-50%);
     font-size: 14px; pointer-events: none; opacity: 0.6;
   }
-
   .chips {
     padding: 0 14px 12px;
     display: flex; gap: 8px; overflow-x: auto;
@@ -155,10 +152,7 @@
     border-color: transparent; color: #fff;
     box-shadow: 0 4px 16px rgba(139,92,246,0.4);
   }
-  .chip.fav-chip.active {
-    background: linear-gradient(135deg, var(--pink), var(--violet));
-  }
-
+  .chip.fav-chip.active { background: linear-gradient(135deg, var(--pink), var(--violet)); }
   .list { padding: 0 14px; display: grid; gap: 12px; position: relative; z-index: 1; }
   .card {
     background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
@@ -175,7 +169,6 @@
   .card:active { transform: scale(0.99); border-color: var(--border-strong); }
   .card.out-stock { opacity: 0.55; }
   @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-
   .card-thumb {
     width: 72px; height: 72px; flex: 0 0 72px; border-radius: 14px;
     background: linear-gradient(135deg, rgba(139,92,246,0.18), rgba(34,211,238,0.14));
@@ -191,7 +184,6 @@
     background: linear-gradient(135deg, rgba(139,92,246,0.25), rgba(34,211,238,0.2));
   }
   .card-thumb .fallback.show { display: grid; }
-
   .card-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
   .card-cat {
     font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
@@ -212,6 +204,11 @@
     display: inline-block; font-size: 10px; font-weight: 700;
     padding: 3px 8px; border-radius: 6px; margin-top: 4px;
     background: rgba(255,90,90,0.15); color: #ff8080; border: 1px solid rgba(255,90,90,0.3);
+  }
+  .card-variants-badge {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    padding: 3px 8px; border-radius: 6px; margin-top: 4px; margin-left: 4px;
+    background: rgba(139,92,246,0.15); color: #c4b5fd; border: 1px solid rgba(139,92,246,0.3);
   }
   .card-actions {
     display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 0 0 auto;
@@ -241,7 +238,6 @@
     opacity: 0.3; cursor: not-allowed; background: rgba(255,255,255,0.04);
     border-color: var(--border);
   }
-
   .cart-bar {
     position: fixed; left: 12px; right: 12px;
     bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 30;
@@ -262,14 +258,12 @@
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
   }
   .cart-bar-total { color: #fff; font-weight: 800; font-size: 17px; letter-spacing: 0.2px; }
-
   .overlay {
     position: fixed; inset: 0; background: rgba(2,3,8,0.7);
     backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
     z-index: 40; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
   }
   .overlay.show { opacity: 1; pointer-events: auto; }
-
   .sheet {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
     background: linear-gradient(180deg, #0e1124, #070915 60%);
@@ -301,7 +295,6 @@
     transition: all 0.2s ease; font-family: inherit;
   }
   .sheet-clear:active { background: rgba(255,70,70,0.12); color: #ff8a8a; border-color: rgba(255,70,70,0.3); }
-
   .cart-items {
     overflow-y: auto; -webkit-overflow-scrolling: touch;
     display: grid; gap: 10px; padding-bottom: 14px; flex: 1;
@@ -314,7 +307,8 @@
     backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   }
   .ci-info { flex: 1; min-width: 0; }
-  .ci-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ci-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .ci-variant { font-size: 12px; color: var(--violet); font-weight: 600; margin-bottom: 2px; }
   .ci-price { font-size: 12px; color: var(--muted); font-weight: 600; }
   .ci-qty {
     display: flex; align-items: center; gap: 6px;
@@ -335,9 +329,51 @@
     color: #ff8080; font-size: 14px; display: grid; place-items: center; cursor: pointer;
   }
   .ci-remove:active { background: rgba(255,70,70,0.22); }
-
   .empty { text-align: center; padding: 50px 20px; color: var(--muted); font-size: 14px; }
   .empty-icon { font-size: 40px; margin-bottom: 12px; opacity: 0.4; }
+
+  .delivery-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px; margin-bottom: 12px;
+    background: rgba(139,92,246,0.06);
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    cursor: pointer;
+  }
+  .delivery-toggle-info { flex: 1; min-width: 0; }
+  .delivery-toggle-title {
+    font-size: 14px; font-weight: 700; margin-bottom: 3px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .delivery-toggle-sub {
+    font-size: 11px; color: var(--muted); line-height: 1.3;
+  }
+  .delivery-switch {
+    width: 46px; height: 26px; border-radius: 999px;
+    background: rgba(255,255,255,0.1); border: 1px solid var(--border-strong);
+    position: relative; flex: 0 0 46px;
+    transition: background 0.25s ease;
+  }
+  .delivery-switch::after {
+    content: ""; position: absolute; top: 2px; left: 2px;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: #fff;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+  .delivery-switch.on {
+    background: linear-gradient(135deg, var(--violet), var(--indigo));
+  }
+  .delivery-switch.on::after { transform: translateX(20px); }
+  .delivery-note {
+    display: none;
+    margin-top: 10px; padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(139,92,246,0.08);
+    border: 1px solid rgba(139,92,246,0.25);
+    font-size: 11px; color: #c4b5fd; line-height: 1.4;
+  }
+  .delivery-note.show { display: block; }
 
   .sheet-footer {
     border-top: 1px solid var(--border); padding-top: 16px;
@@ -352,6 +388,11 @@
     background: linear-gradient(90deg, #fff, #b6bdf5 60%, #7dd3fc);
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
   }
+  .total-delivery {
+    font-size: 11px; color: var(--violet); font-weight: 600; margin-top: 2px;
+    display: none;
+  }
+  .total-delivery.show { display: block; }
   .checkout-btn {
     flex: 1; max-width: 220px; height: 54px; border-radius: 16px; border: 0;
     background: linear-gradient(135deg, var(--violet), var(--indigo) 55%, var(--cyan));
@@ -362,7 +403,6 @@
   }
   .checkout-btn:active { transform: scale(0.96); }
   .checkout-btn:disabled { opacity: 0.4; box-shadow: none; cursor: not-allowed; }
-
   .footer {
     text-align: center; padding: 30px 20px 10px;
     font-size: 11px; color: rgba(124,132,168,0.5);
@@ -384,28 +424,25 @@
     background: rgba(139,92,246,0.1); border-color: rgba(139,92,246,0.4); color: #c4b5fd;
   }
   .admin-entry-btn .lock-icon { font-size: 14px; opacity: 0.7; }
-
-  /* ORDER MODAL */
-  .order-modal, .pw-modal, .admin-overlay {
+  .order-modal, .pw-modal, .admin-overlay, .variant-modal {
     position: fixed; inset: 0; z-index: 100;
     background: rgba(2,3,8,0.85);
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     display: none; align-items: center; justify-content: center; padding: 16px;
   }
-  .order-modal.show, .pw-modal.show { display: flex; animation: fadeIn 0.2s ease; }
+  .order-modal.show, .pw-modal.show, .variant-modal.show { display: flex; animation: fadeIn 0.2s ease; }
   .admin-overlay { align-items: flex-end; justify-content: center; padding: 0; }
   .admin-overlay.show { display: flex; animation: fadeIn 0.25s ease; }
   @keyframes fadeIn { from{opacity:0} to{opacity:1} }
-
-  .order-box, .pw-box {
+  .order-box, .pw-box, .variant-box {
     width: 100%; max-width: 400px;
     background: var(--surface-solid); border: 1px solid var(--border-strong);
     border-radius: 22px; padding: 22px 18px;
     box-shadow: 0 30px 80px rgba(0,0,0,0.7);
     max-height: 90vh; overflow-y: auto;
   }
-  .order-box h3, .pw-box h3 { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
-  .order-box p, .pw-box p { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+  .order-box h3, .pw-box h3, .variant-box h3 { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+  .order-box p, .pw-box p, .variant-box p { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
   .order-field { margin-bottom: 12px; }
   .order-field label {
     display: block; font-size: 11px; font-weight: 600;
@@ -430,7 +467,23 @@
   .order-buttons button:active { transform: scale(0.97); }
   .btn-cancel { background: rgba(255,255,255,0.06); border: 1px solid var(--border); color: var(--text); }
   .btn-submit { background: linear-gradient(135deg, var(--violet), var(--indigo)); color: #fff; box-shadow: 0 8px 22px rgba(99,102,241,0.4); }
-
+  .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
+  .variant-chips {
+    display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0;
+  }
+  .variant-chip {
+    padding: 10px 16px; border-radius: 12px;
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    color: var(--text); font-size: 13px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+    transition: all 0.15s ease;
+  }
+  .variant-chip:active { transform: scale(0.95); }
+  .variant-chip.selected {
+    background: linear-gradient(135deg, var(--violet), var(--indigo));
+    border-color: transparent; color: #fff;
+    box-shadow: 0 4px 16px rgba(139,92,246,0.4);
+  }
   .pw-box input {
     width: 100%; padding: 14px; border-radius: 12px;
     background: rgba(0,0,0,0.4); border: 1px solid var(--border-strong);
@@ -445,8 +498,6 @@
   }
   .pw-error { color: var(--danger); font-size: 12px; text-align: center; margin-top: 10px; display: none; }
   .pw-error.show { display: block; }
-
-  /* ADMIN PANEL */
   .admin-panel {
     width: 100%; max-width: 560px;
     background: linear-gradient(180deg, #0e1124, #05060a 60%);
@@ -483,6 +534,42 @@
   .admin-status.err .dot { background: var(--danger); box-shadow: 0 0 10px var(--danger); }
   .admin-status.loading .dot { background: var(--cyan); animation: pulse 1s infinite; }
   @keyframes pulse { 50%{opacity:0.3} }
+  .admin-categories {
+    padding: 14px; border-bottom: 1px solid var(--border);
+    background: rgba(139,92,246,0.04);
+  }
+  .admin-cat-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--violet); margin-bottom: 10px;
+  }
+  .admin-cat-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .admin-cat-chip {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 10px; border-radius: 10px;
+    background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.3);
+    color: #c4b5fd; font-size: 12px; font-weight: 600;
+  }
+  .admin-cat-chip button {
+    width: 16px; height: 16px; border-radius: 4px; border: 0;
+    background: rgba(255,90,90,0.2); color: #ff8080;
+    font-size: 11px; cursor: pointer;
+    display: grid; place-items: center; padding: 0; line-height: 1;
+  }
+  .admin-cat-empty { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+  .admin-cat-add { display: flex; gap: 8px; }
+  .admin-cat-add input {
+    flex: 1; padding: 10px 12px; border-radius: 10px;
+    background: rgba(0,0,0,0.3); border: 1px solid var(--border);
+    color: var(--text); font-size: 13px; font-family: inherit;
+    outline: none;
+  }
+  .admin-cat-add input:focus { border-color: var(--violet); }
+  .admin-cat-add button {
+    padding: 10px 16px; border-radius: 10px; border: 0;
+    background: linear-gradient(135deg, var(--violet), var(--indigo));
+    color: #fff; font-size: 13px; font-weight: 800; cursor: pointer;
+    font-family: inherit;
+  }
   .admin-list {
     flex: 1; overflow-y: auto; padding: 14px 14px;
     display: grid; gap: 12px; -webkit-overflow-scrolling: touch;
@@ -501,7 +588,6 @@
   .admin-item input:focus, .admin-item textarea:focus, .admin-item select:focus { border-color: var(--violet); }
   .admin-item input::placeholder, .admin-item textarea::placeholder { color: rgba(124,132,168,0.5); }
   .admin-item .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .admin-item .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
   .admin-item .img-row { display: grid; grid-template-columns: 54px 1fr; gap: 8px; align-items: center; }
   .admin-item .img-preview {
     width: 54px; height: 54px; border-radius: 10px;
@@ -533,6 +619,10 @@
     border-color: rgba(255,90,90,0.3);
     color: #ff8080;
   }
+  .variants-input-wrap { position: relative; }
+  .variants-input-wrap .variants-hint {
+    font-size: 10px; color: var(--muted); margin-top: 4px;
+  }
   .admin-item .controls {
     display: flex; gap: 6px; align-items: center; justify-content: flex-end;
     margin-top: 4px;
@@ -552,7 +642,6 @@
     font-family: inherit; height: 32px;
   }
   .del-btn:active { background: rgba(255,70,70,0.25); }
-
   .admin-footer {
     padding: 12px 14px calc(14px + env(safe-area-inset-bottom));
     border-top: 1px solid var(--border);
@@ -572,7 +661,6 @@
     box-shadow: 0 8px 22px rgba(99,102,241,0.4);
   }
   .admin-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
   .loading-screen {
     position: fixed; inset: 0; z-index: 200;
     background: var(--bg); display: grid; place-items: center;
@@ -663,12 +751,38 @@
     <button class="sheet-clear" id="clearBtn">Очистить</button>
   </div>
   <div class="cart-items" id="cartItems"></div>
+
+  <div class="delivery-toggle" id="deliveryToggle">
+    <div class="delivery-toggle-info">
+      <div class="delivery-toggle-title">🚚 Доставка</div>
+      <div class="delivery-toggle-sub">от 100 ₽ · уточняется в ЛС</div>
+    </div>
+    <div class="delivery-switch" id="deliverySwitch"></div>
+  </div>
+  <div class="delivery-note" id="deliveryNote">
+    Стоимость доставки от 100 ₽ и уточняется в личных сообщениях с продавцом после оформления заказа.
+  </div>
+
   <div class="sheet-footer">
     <div>
       <div class="total-label">Итого</div>
       <div class="total-value" id="sheetTotal">0 ₽</div>
+      <div class="total-delivery" id="totalDelivery">+ доставка от 100 ₽</div>
     </div>
     <button class="checkout-btn" id="checkoutBtn">Оформить</button>
+  </div>
+</div>
+
+<!-- VARIANT MODAL -->
+<div class="variant-modal" id="variantModal">
+  <div class="variant-box">
+    <h3 id="variantProductName"></h3>
+    <p id="variantProductPrice"></p>
+    <div class="variant-chips" id="variantChips"></div>
+    <div class="order-buttons">
+      <button class="btn-cancel" id="variantCancel">Отмена</button>
+      <button class="btn-submit" id="variantAdd" disabled>Добавить</button>
+    </div>
   </div>
 </div>
 
@@ -721,6 +835,14 @@
       <div class="dot"></div>
       <span id="adminStatusText">Проверка подключения...</span>
     </div>
+    <div class="admin-categories">
+      <div class="admin-cat-title">Категории</div>
+      <div class="admin-cat-chips" id="adminCatChips"></div>
+      <div class="admin-cat-add">
+        <input type="text" id="adminCatInput" placeholder="Новая категория...">
+        <button id="adminCatAddBtn">+ Добавить</button>
+      </div>
+    </div>
     <div class="admin-list" id="adminList"></div>
     <div class="admin-footer">
       <button class="admin-btn add" id="adminAddBtn">+ Добавить товар</button>
@@ -733,25 +855,31 @@
 
 <script>
   const FIREBASE_URL = "https://moon-vape-default-rtdb.firebaseio.com/products.json";
+  const CATEGORIES_URL = "https://moon-vape-default-rtdb.firebaseio.com/categories.json";
   const ADMIN_PASSWORD = "1312";
   const TELEGRAM_USERNAME = "Emelya_1312";
 
   const DEFAULT_PRODUCTS = [
-    { id: 1, name: "XROS Mini", price: 1200, oldPrice: 0, category: "Поды", description: "Компактный под с ёмким аккумулятором", image: "https://picsum.photos/seed/xrosmini/300/300", inStock: true, visible: true },
-    { id: 2, name: "Картридж XROS 0.6Ω", price: 230, oldPrice: 0, category: "Картриджи", description: "Сменный картридж для XROS", image: "https://picsum.photos/seed/cartridge/300/300", inStock: true, visible: true },
-    { id: 3, name: "Ашка BOU 600 тяг", price: 150, oldPrice: 0, category: "Одноразки", description: "Одноразовая электронка на 600 затяжек", image: "https://picsum.photos/seed/bou600/300/300", inStock: true, visible: true },
-    { id: 4, name: "Charon Baby Mystery Box", price: 1000, oldPrice: 0, category: "Поды", description: "Мистери бокс с девайсом и расходниками", image: "https://picsum.photos/seed/charon/300/300", inStock: true, visible: true },
-    { id: 5, name: "Испаритель K5", price: 250, oldPrice: 0, category: "Испарители", description: "Сменный испаритель K5", image: "https://picsum.photos/seed/k5coil/300/300", inStock: true, visible: true },
-    { id: 6, name: "Испаритель B Coil 0.2", price: 250, oldPrice: 0, category: "Испарители", description: "Испаритель с сопротивлением 0.2Ω", image: "https://picsum.photos/seed/bcoil/300/300", inStock: true, visible: true },
-    { id: 7, name: "Бак Hero 2 / Hero 3", price: 450, oldPrice: 0, category: "Баки", description: "Сменный бак для Hero 2 и Hero 3", image: "https://picsum.photos/seed/hero2/300/300", inStock: true, visible: true }
+    { id: 1, name: "XROS Mini", price: 1200, oldPrice: 0, category: "Поды", description: "Компактный под с ёмким аккумулятором", image: "https://picsum.photos/seed/xrosmini/300/300", inStock: true, visible: true, variants: ["Чёрный", "Синий", "Красный"] },
+    { id: 2, name: "Картридж XROS 0.6Ω", price: 230, oldPrice: 0, category: "Картриджи", description: "Сменный картридж для XROS", image: "https://picsum.photos/seed/cartridge/300/300", inStock: true, visible: true, variants: [] },
+    { id: 3, name: "Ашка BOU 600 тяг", price: 150, oldPrice: 0, category: "Одноразки", description: "Одноразовая электронка на 600 затяжек", image: "https://picsum.photos/seed/bou600/300/300", inStock: true, visible: true, variants: ["Мята", "Кола", "Клубника", "Арбуз"] },
+    { id: 4, name: "Charon Baby Mystery Box", price: 1000, oldPrice: 0, category: "Поды", description: "Мистери бокс с девайсом и расходниками", image: "https://picsum.photos/seed/charon/300/300", inStock: true, visible: true, variants: [] },
+    { id: 5, name: "Испаритель K5", price: 250, oldPrice: 0, category: "Испарители", description: "Сменный испаритель K5", image: "https://picsum.photos/seed/k5coil/300/300", inStock: true, visible: true, variants: [] },
+    { id: 6, name: "Испаритель B Coil 0.2", price: 250, oldPrice: 0, category: "Испарители", description: "Испаритель с сопротивлением 0.2Ω", image: "https://picsum.photos/seed/bcoil/300/300", inStock: true, visible: true, variants: [] },
+    { id: 7, name: "Бак Hero 2 / Hero 3", price: 450, oldPrice: 0, category: "Баки", description: "Сменный бак для Hero 2 и Hero 3", image: "https://picsum.photos/seed/hero2/300/300", inStock: true, visible: true, variants: [] }
   ];
 
-  const CART_KEY = "moon_vape_cart_v2";
+  const DEFAULT_CATEGORIES = ["Поды", "Картриджи", "Испарители", "Баки", "Одноразки"];
+
+  const CART_KEY = "moon_vape_cart_v3";
   const FAV_KEY = "moon_vape_fav_v1";
+  const DELIVERY_KEY = "moon_vape_delivery_v1";
 
   let products = [];
+  let categories = [];
   let cart = loadJSON(CART_KEY, {});
   let favorites = loadJSON(FAV_KEY, []);
+  let deliveryEnabled = localStorage.getItem(DELIVERY_KEY) === "1";
   let firebaseReady = false;
   let activeCategory = "__all__";
   let searchQuery = "";
@@ -765,6 +893,7 @@
   const barCount = document.getElementById("barCount");
   const barTotal = document.getElementById("barTotal");
   const sheetTotal = document.getElementById("sheetTotal");
+  const totalDelivery = document.getElementById("totalDelivery");
   const cartBar = document.getElementById("cartBar");
   const sheet = document.getElementById("sheet");
   const overlay = document.getElementById("overlay");
@@ -774,6 +903,18 @@
   const loadingScreen = document.getElementById("loadingScreen");
   const toast = document.getElementById("toast");
   const searchBox = document.getElementById("searchBox");
+  const deliveryToggle = document.getElementById("deliveryToggle");
+  const deliverySwitch = document.getElementById("deliverySwitch");
+  const deliveryNote = document.getElementById("deliveryNote");
+
+  const variantModal = document.getElementById("variantModal");
+  const variantProductName = document.getElementById("variantProductName");
+  const variantProductPrice = document.getElementById("variantProductPrice");
+  const variantChips = document.getElementById("variantChips");
+  const variantCancel = document.getElementById("variantCancel");
+  const variantAdd = document.getElementById("variantAdd");
+  let currentVariantProduct = null;
+  let selectedVariant = "";
 
   const orderModal = document.getElementById("orderModal");
   const orderName = document.getElementById("orderName");
@@ -795,15 +936,16 @@
   const adminStatus = document.getElementById("adminStatus");
   const adminStatusText = document.getElementById("adminStatusText");
   const adminEntryBtn = document.getElementById("adminEntryBtn");
+  const adminCatChips = document.getElementById("adminCatChips");
+  const adminCatInput = document.getElementById("adminCatInput");
+  const adminCatAddBtn = document.getElementById("adminCatAddBtn");
 
-  // file input (скрытый)
   const fileInput = document.createElement("input");
   fileInput.type = "file";
   fileInput.accept = "image/*";
   fileInput.style.display = "none";
   document.body.appendChild(fileInput);
 
-  // ============ HELPERS ============
   function showToast(msg) {
     toast.textContent = msg;
     toast.classList.add("show");
@@ -818,10 +960,17 @@
   function saveCart() { saveJSON(CART_KEY, cart); }
   function saveFav() { saveJSON(FAV_KEY, favorites); }
 
+  function makeCartKey(id, variant) { return variant ? id + "|||" + variant : String(id); }
+  function parseCartKey(key) {
+    const parts = String(key).split("|||");
+    return { id: Number(parts[0]), variant: parts[1] || "" };
+  }
+
   function cartCount() { return Object.values(cart).reduce((a,b)=>a+b,0); }
   function cartTotal() {
-    return Object.entries(cart).reduce((s, [id, qty]) => {
-      const p = products.find(x => Number(x.id) === Number(id));
+    return Object.entries(cart).reduce((s, [key, qty]) => {
+      const { id } = parseCartKey(key);
+      const p = products.find(x => Number(x.id) === id);
       return s + (p ? Number(p.price) * qty : 0);
     }, 0);
   }
@@ -839,7 +988,8 @@
       description: String(p.description || ""),
       image: String(p.image || ""),
       inStock: p.inStock !== false,
-      visible: p.visible !== false
+      visible: p.visible !== false,
+      variants: Array.isArray(p.variants) ? p.variants.map(String).filter(Boolean) : []
     })).sort((a,b) => a.id - b.id);
   }
 
@@ -864,6 +1014,19 @@
     }
   }
 
+  async function loadCategories() {
+    try {
+      const resp = await fetch(CATEGORIES_URL + "?ts=" + Date.now());
+      if (!resp.ok) throw new Error("HTTP " + resp.status);
+      const data = await resp.json();
+      if (Array.isArray(data) && data.length) categories = data.map(String);
+      else categories = [...DEFAULT_CATEGORIES];
+    } catch (e) {
+      console.error("Categories:", e);
+      categories = [...DEFAULT_CATEGORIES];
+    }
+  }
+
   async function saveProductsToFirebase(arr) {
     const resp = await fetch(FIREBASE_URL, {
       method: "PUT",
@@ -874,13 +1037,18 @@
     return await resp.json();
   }
 
-  // ============ CHIPS ============
+  async function saveCategoriesToFirebase(arr) {
+    const resp = await fetch(CATEGORIES_URL, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(arr)
+    });
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    return await resp.json();
+  }
+
   function renderChips() {
     chipsEl.innerHTML = "";
-    const visibleProducts = products.filter(p => p.visible !== false);
-    const categories = ["__all__", ...Array.from(new Set(visibleProducts.map(p => p.category).filter(Boolean)))];
-    
-    // Fav chip
     const favChip = document.createElement("button");
     favChip.className = "chip fav-chip" + (favOnly ? " active" : "");
     favChip.innerHTML = `❤️ Избранное`;
@@ -892,10 +1060,21 @@
     });
     chipsEl.appendChild(favChip);
 
+    const allChip = document.createElement("button");
+    allChip.className = "chip" + (!favOnly && activeCategory === "__all__" ? " active" : "");
+    allChip.textContent = "Все";
+    allChip.addEventListener("click", () => {
+      activeCategory = "__all__";
+      favOnly = false;
+      renderChips();
+      renderProducts();
+    });
+    chipsEl.appendChild(allChip);
+
     categories.forEach(cat => {
       const btn = document.createElement("button");
       btn.className = "chip" + (!favOnly && activeCategory === cat ? " active" : "");
-      btn.textContent = cat === "__all__" ? "Все" : cat;
+      btn.textContent = cat;
       btn.addEventListener("click", () => {
         activeCategory = cat;
         favOnly = false;
@@ -906,7 +1085,6 @@
     });
   }
 
-  // ============ PRODUCTS ============
   function getFilteredProducts() {
     let list = products.filter(p => p.visible !== false);
     if (favOnly) list = list.filter(p => favorites.includes(Number(p.id)));
@@ -928,6 +1106,7 @@
     list.forEach((p, i) => {
       const isFav = favorites.includes(Number(p.id));
       const hasDiscount = p.oldPrice && p.oldPrice > p.price;
+      const hasVariants = Array.isArray(p.variants) && p.variants.length > 0;
       const card = document.createElement("div");
       card.className = "card" + (p.inStock === false ? " out-stock" : "");
       card.style.animationDelay = (i * 0.04) + "s";
@@ -945,6 +1124,7 @@
             ${hasDiscount ? `<div class="card-price-old">${formatPrice(p.oldPrice)}</div>` : ""}
           </div>
           ${p.inStock === false ? `<div class="card-stock-badge">Нет в наличии</div>` : ""}
+          ${hasVariants ? `<div class="card-variants-badge">${p.variants.length} вариант${p.variants.length > 1 ? 'а' : ''}</div>` : ""}
         </div>
         <div class="card-actions">
           <button class="fav-btn ${isFav ? "active" : ""}" data-fav="${p.id}" aria-label="В избранное">${isFav ? "❤️" : "🤍"}</button>
@@ -954,12 +1134,54 @@
       listEl.appendChild(card);
     });
     listEl.querySelectorAll(".add-btn").forEach(btn => {
-      btn.addEventListener("click", () => addToCart(Number(btn.dataset.id)));
+      btn.addEventListener("click", () => handleAddClick(Number(btn.dataset.id)));
     });
     listEl.querySelectorAll(".fav-btn").forEach(btn => {
       btn.addEventListener("click", () => toggleFav(Number(btn.dataset.fav)));
     });
   }
+
+  function handleAddClick(id) {
+    const p = products.find(x => Number(x.id) === Number(id));
+    if (!p || p.inStock === false) return;
+    if (Array.isArray(p.variants) && p.variants.length > 0) {
+      openVariantPicker(p);
+    } else {
+      addToCart(id, "");
+    }
+  }
+
+  function openVariantPicker(p) {
+    currentVariantProduct = p;
+    selectedVariant = "";
+    variantProductName.textContent = p.name;
+    variantProductPrice.textContent = formatPrice(p.price);
+    variantChips.innerHTML = "";
+    p.variants.forEach(v => {
+      const chip = document.createElement("button");
+      chip.className = "variant-chip";
+      chip.textContent = v;
+      chip.addEventListener("click", () => {
+        variantChips.querySelectorAll(".variant-chip").forEach(c => c.classList.remove("selected"));
+        chip.classList.add("selected");
+        selectedVariant = v;
+        variantAdd.disabled = false;
+      });
+      variantChips.appendChild(chip);
+    });
+    variantAdd.disabled = true;
+    variantModal.classList.add("show");
+  }
+
+  variantCancel.addEventListener("click", () => variantModal.classList.remove("show"));
+  variantModal.addEventListener("click", (e) => { if (e.target === variantModal) variantModal.classList.remove("show"); });
+  variantAdd.addEventListener("click", () => {
+    if (!currentVariantProduct || !selectedVariant) return;
+    addToCart(currentVariantProduct.id, selectedVariant);
+    variantModal.classList.remove("show");
+    currentVariantProduct = null;
+    selectedVariant = "";
+  });
 
   function toggleFav(id) {
     const idx = favorites.indexOf(id);
@@ -969,25 +1191,25 @@
     renderProducts();
   }
 
-  // ============ CART ============
-  function addToCart(id) {
+  function addToCart(id, variant) {
     const p = products.find(x => Number(x.id) === Number(id));
     if (!p || p.inStock === false) return;
-    cart[id] = (cart[id] || 0) + 1;
+    const key = makeCartKey(id, variant);
+    cart[key] = (cart[key] || 0) + 1;
     saveCart();
     renderCart();
     renderSummary();
     bumpCart();
   }
-  function changeQty(id, delta) {
-    if (!cart[id]) return;
-    cart[id] += delta;
-    if (cart[id] <= 0) delete cart[id];
+  function changeQty(key, delta) {
+    if (!cart[key]) return;
+    cart[key] += delta;
+    if (cart[key] <= 0) delete cart[key];
     saveCart();
     renderCart();
     renderSummary();
   }
-  function removeItem(id) { delete cart[id]; saveCart(); renderCart(); renderSummary(); }
+  function removeItem(key) { delete cart[key]; saveCart(); renderCart(); renderSummary(); }
   function clearCart() { cart = {}; saveCart(); renderCart(); renderSummary(); }
   function bumpCart() {
     cartBar.style.transition = "transform 0.15s ease";
@@ -1002,32 +1224,34 @@
       cartItemsEl.innerHTML = `<div class="empty"><div class="empty-icon">🌙</div>Здесь пока пусто</div>`;
       return;
     }
-    entries.forEach(([id, qty]) => {
-      const p = products.find(x => Number(x.id) === Number(id));
+    entries.forEach(([key, qty]) => {
+      const { id, variant } = parseCartKey(key);
+      const p = products.find(x => Number(x.id) === id);
       if (!p) return;
       const item = document.createElement("div");
       item.className = "cart-item";
       item.innerHTML = `
         <div class="ci-info">
           <div class="ci-name">${p.name}</div>
+          ${variant ? `<div class="ci-variant">• ${variant}</div>` : ""}
           <div class="ci-price">${formatPrice(p.price)} × ${qty}</div>
         </div>
         <div class="ci-qty">
-          <button class="qty-btn" data-action="minus" data-id="${p.id}">−</button>
+          <button class="qty-btn" data-action="minus" data-key="${key}">−</button>
           <span class="qty-num">${qty}</span>
-          <button class="qty-btn" data-action="plus" data-id="${p.id}">+</button>
+          <button class="qty-btn" data-action="plus" data-key="${key}">+</button>
         </div>
-        <button class="ci-remove" data-action="remove" data-id="${p.id}">✕</button>
+        <button class="ci-remove" data-action="remove" data-key="${key}">✕</button>
       `;
       cartItemsEl.appendChild(item);
     });
     cartItemsEl.querySelectorAll("button[data-action]").forEach(btn => {
-      const id = Number(btn.dataset.id);
+      const key = btn.dataset.key;
       const action = btn.dataset.action;
       btn.addEventListener("click", () => {
-        if (action === "plus") changeQty(id, 1);
-        else if (action === "minus") changeQty(id, -1);
-        else if (action === "remove") removeItem(id);
+        if (action === "plus") changeQty(key, 1);
+        else if (action === "minus") changeQty(key, -1);
+        else if (action === "remove") removeItem(key);
       });
     });
   }
@@ -1043,12 +1267,20 @@
     cartBar.classList.toggle("show", count > 0);
     checkoutBtn.disabled = count === 0;
     checkoutBtn.textContent = count === 0 ? "Оформить" : `Оформить · ${formatPrice(total)}`;
+    deliverySwitch.classList.toggle("on", deliveryEnabled);
+    deliveryNote.classList.toggle("show", deliveryEnabled);
+    totalDelivery.classList.toggle("show", deliveryEnabled && count > 0);
   }
+
+  deliveryToggle.addEventListener("click", () => {
+    deliveryEnabled = !deliveryEnabled;
+    localStorage.setItem(DELIVERY_KEY, deliveryEnabled ? "1" : "0");
+    renderSummary();
+  });
 
   function openSheet() { if (cartCount() === 0) return; overlay.classList.add("show"); sheet.classList.add("show"); }
   function closeSheet() { overlay.classList.remove("show"); sheet.classList.remove("show"); }
 
-  // ============ ORDER ============
   function buildOrderText() {
     const name = orderName.value.trim();
     const phone = orderPhone.value.trim();
@@ -1058,14 +1290,21 @@
     if (phone) lines.push(`📱 Телефон: ${phone}`);
     if (name || phone) lines.push("");
     lines.push("🛒 Состав заказа:");
-    Object.entries(cart).forEach(([id, qty]) => {
-      const p = products.find(x => Number(x.id) === Number(id));
+    Object.entries(cart).forEach(([key, qty]) => {
+      const { id, variant } = parseCartKey(key);
+      const p = products.find(x => Number(x.id) === id);
       if (!p) return;
       const sum = Number(p.price) * qty;
-      lines.push(`• ${p.name} × ${qty} — ${sum.toLocaleString("ru-RU")} ₽`);
+      const v = variant ? ` (${variant})` : "";
+      lines.push(`• ${p.name}${v} × ${qty} — ${sum.toLocaleString("ru-RU")} ₽`);
     });
     lines.push("");
-    lines.push(`💰 Итого: ${cartTotal().toLocaleString("ru-RU")} ₽`);
+    lines.push(`💰 Товары: ${cartTotal().toLocaleString("ru-RU")} ₽`);
+    if (deliveryEnabled) {
+      lines.push(`🚚 Доставка: от 100 ₽ (уточняется в ЛС)`);
+    } else {
+      lines.push(`🏠 Самовывоз`);
+    }
     if (comment) { lines.push(""); lines.push(`💬 ${comment}`); }
     return lines.join("\n");
   }
@@ -1097,7 +1336,6 @@
     setTimeout(() => { clearCart(); closeSheet(); }, 600);
   });
 
-  // ============ ADMIN LOGIN ============
   adminEntryBtn.addEventListener("click", () => {
     pwInput.value = "";
     pwError.classList.remove("show");
@@ -1118,12 +1356,14 @@
   }
   pwModal.addEventListener("click", (e) => { if (e.target === pwModal) pwModal.classList.remove("show"); });
 
-  // ============ ADMIN PANEL ============
   let editingProducts = [];
+  let editingCategories = [];
 
   function openAdmin() {
     editingProducts = JSON.parse(JSON.stringify(products));
+    editingCategories = [...categories];
     renderAdminList();
+    renderAdminCategories();
     checkFirebaseStatus();
     adminOverlay.classList.add("show");
   }
@@ -1139,13 +1379,64 @@
     else updateAdminStatus("err", "✗ Ошибка подключения к Firebase");
   }
 
+  function renderAdminCategories() {
+    adminCatChips.innerHTML = "";
+    if (!editingCategories.length) {
+      adminCatChips.innerHTML = `<div class="admin-cat-empty">Категорий нет</div>`;
+      return;
+    }
+    editingCategories.forEach((cat, idx) => {
+      const chip = document.createElement("div");
+      chip.className = "admin-cat-chip";
+      chip.innerHTML = `<span>${cat}</span><button data-catdel="${idx}">✕</button>`;
+      adminCatChips.appendChild(chip);
+    });
+    adminCatChips.querySelectorAll("button[data-catdel]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const idx = Number(btn.dataset.catdel);
+        const removed = editingCategories[idx];
+        editingCategories.splice(idx, 1);
+        renderAdminCategories();
+        // обновить datalist в админке
+        updateAdminCategoryDatalist();
+        showToast(`Категория "${removed}" удалена (у товаров останется)`);
+      });
+    });
+  }
+
+  adminCatAddBtn.addEventListener("click", () => {
+    const val = adminCatInput.value.trim();
+    if (!val) return;
+    if (editingCategories.includes(val)) {
+      showToast("Такая категория уже есть");
+      return;
+    }
+    editingCategories.push(val);
+    adminCatInput.value = "";
+    renderAdminCategories();
+    updateAdminCategoryDatalist();
+  });
+  adminCatInput.addEventListener("keydown", (e) => { if (e.key === "Enter") adminCatAddBtn.click(); });
+
+  function updateAdminCategoryDatalist() {
+    let dl = document.getElementById("catListAdmin");
+    if (!dl) {
+      dl = document.createElement("datalist");
+      dl.id = "catListAdmin";
+      document.body.appendChild(dl);
+    }
+    dl.innerHTML = editingCategories.map(c => `<option value="${c}">`).join("");
+  }
+
   function renderAdminList() {
     adminList.innerHTML = "";
+    updateAdminCategoryDatalist();
     if (!editingProducts.length) {
       adminList.innerHTML = `<div class="empty" style="padding:20px;font-size:13px;">Нет товаров. Добавьте первый.</div>`;
       return;
     }
     editingProducts.forEach((p, idx) => {
+      const variantsStr = (Array.isArray(p.variants) ? p.variants : []).join(", ");
       const item = document.createElement("div");
       item.className = "admin-item";
       item.innerHTML = `
@@ -1157,11 +1448,15 @@
           </div>
         </div>
         <input type="text" placeholder="Название" value="${p.name || ''}" data-field="name" data-idx="${idx}">
-        <input type="text" placeholder="Категория (например: Поды, Картриджи)" list="catList" value="${p.category || ''}" data-field="category" data-idx="${idx}">
+        <input type="text" placeholder="Категория" list="catListAdmin" value="${p.category || ''}" data-field="category" data-idx="${idx}">
         <textarea placeholder="Краткое описание (необязательно)" data-field="description" data-idx="${idx}">${p.description || ''}</textarea>
         <div class="row">
           <input type="number" placeholder="Цена, ₽" value="${p.price || 0}" data-field="price" data-idx="${idx}">
-          <input type="number" placeholder="Старая цена (для скидки)" value="${p.oldPrice || 0}" data-field="oldPrice" data-idx="${idx}">
+          <input type="number" placeholder="Старая цена (скидка)" value="${p.oldPrice || 0}" data-field="oldPrice" data-idx="${idx}">
+        </div>
+        <div class="variants-input-wrap">
+          <input type="text" placeholder="Варианты через запятую (цвет/вкус)" value="${variantsStr}" data-field="variants" data-idx="${idx}">
+          <div class="variants-hint">Пример: Чёрный, Синий, Мята, Кола — оставь пустым, если вариантов нет</div>
         </div>
         <div class="toggles">
           <button class="toggle-btn ${p.inStock !== false ? 'on' : 'off'}" data-toggle="inStock" data-idx="${idx}">${p.inStock !== false ? '✓ В наличии' : '✕ Нет в наличии'}</button>
@@ -1176,22 +1471,17 @@
       adminList.appendChild(item);
     });
 
-    // datalist категорий
-    const cats = Array.from(new Set(editingProducts.map(p => p.category).filter(Boolean)));
-    let dl = document.getElementById("catList");
-    if (!dl) {
-      dl = document.createElement("datalist");
-      dl.id = "catList";
-      document.body.appendChild(dl);
-    }
-    dl.innerHTML = cats.map(c => `<option value="${c}">`).join("");
-
-    // обработчики
     adminList.querySelectorAll("input[data-field], textarea[data-field]").forEach(inp => {
       inp.addEventListener("input", (e) => {
         const idx = Number(e.target.dataset.idx);
         const field = e.target.dataset.field;
         if (field === "price" || field === "oldPrice") editingProducts[idx][field] = Number(e.target.value) || 0;
+        else if (field === "variants") {
+          editingProducts[idx].variants = e.target.value
+            .split(",")
+            .map(s => s.trim())
+            .filter(Boolean);
+        }
         else editingProducts[idx][field] = e.target.value;
         if (field === "image") {
           const prev = e.target.closest(".admin-item").querySelector(".img-preview");
@@ -1236,7 +1526,6 @@
     });
   }
 
-  // ============ UPLOAD ============
   async function uploadPhoto(file) {
     const formData = new FormData();
     formData.append("reqtype", "fileupload");
@@ -1263,14 +1552,14 @@
     fileInput.value = "";
   });
 
-  // ============ ADMIN ACTIONS ============
   adminAddBtn.addEventListener("click", () => {
     const newId = editingProducts.length ? Math.max(...editingProducts.map(p => Number(p.id))) + 1 : 1;
     editingProducts.push({
       id: newId, name: "Новый товар", price: 0, oldPrice: 0,
-      category: "Прочее", description: "",
+      category: editingCategories[0] || "Прочее",
+      description: "",
       image: "https://picsum.photos/seed/newitem" + newId + "/300/300",
-      inStock: true, visible: true
+      inStock: true, visible: true, variants: []
     });
     renderAdminList();
     adminList.scrollTop = adminList.scrollHeight;
@@ -1282,7 +1571,9 @@
     updateAdminStatus("loading", "Отправка в Firebase...");
     try {
       await saveProductsToFirebase(editingProducts);
+      await saveCategoriesToFirebase(editingCategories);
       products = JSON.parse(JSON.stringify(editingProducts));
+      categories = [...editingCategories];
       firebaseReady = true;
       renderChips();
       renderProducts();
@@ -1305,19 +1596,18 @@
   adminClose.addEventListener("click", closeAdmin);
   adminOverlay.addEventListener("click", (e) => { if (e.target === adminOverlay) closeAdmin(); });
 
-  // ============ SEARCH ============
   searchBox.addEventListener("input", (e) => {
     searchQuery = e.target.value;
     renderProducts();
   });
 
-  // ============ AUTO REFRESH ============
   async function refreshCatalogIfVisible() {
     if (document.visibilityState !== "visible") return;
     if (adminOverlay.classList.contains("show")) return;
-    const before = JSON.stringify(products);
+    const before = JSON.stringify(products) + JSON.stringify(categories);
     await loadProducts();
-    if (JSON.stringify(products) !== before) {
+    await loadCategories();
+    if (JSON.stringify(products) + JSON.stringify(categories) !== before) {
       renderChips();
       renderProducts();
       renderCart();
@@ -1327,14 +1617,12 @@
   document.addEventListener("visibilitychange", refreshCatalogIfVisible);
   setInterval(refreshCatalogIfVisible, 60000);
 
-  // ============ INIT ============
   cartBar.addEventListener("click", openSheet);
   headerCart.addEventListener("click", openSheet);
   overlay.addEventListener("click", closeSheet);
   clearBtn.addEventListener("click", clearCart);
   checkoutBtn.addEventListener("click", () => {
     if (cartCount() === 0) return;
-    // Восстановить последние данные из localStorage
     try {
       const saved = JSON.parse(localStorage.getItem("moon_vape_client") || "{}");
       orderName.value = saved.name || "";
@@ -1344,8 +1632,6 @@
     orderModal.classList.add("show");
     setTimeout(() => orderName.focus(), 200);
   });
-
-  // Save client info on change
   [orderName, orderPhone].forEach(inp => {
     inp.addEventListener("input", () => {
       try {
@@ -1358,7 +1644,7 @@
 
   let startY = 0, currentY = 0, dragging = false;
   sheet.addEventListener("touchstart", (e) => {
-    if (e.target.closest(".cart-items")) return;
+    if (e.target.closest(".cart-items") || e.target.closest(".delivery-toggle")) return;
     startY = e.touches[0].clientY;
     dragging = true;
     sheet.style.transition = "none";
@@ -1377,7 +1663,7 @@
   });
 
   (async () => {
-    await loadProducts();
+    await Promise.all([loadProducts(), loadCategories()]);
     renderChips();
     renderProducts();
     renderCart();
